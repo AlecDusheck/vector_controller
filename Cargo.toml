@@ -1,8 +1,18 @@
 [package]
-name = "VectorTesting"
+name = "vector_testing"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+async-stream = "0.3"
+futures = { version = "0.3", default-features = false, features = ["alloc"] }
+prost = "0.10"
+tokio = { version = "1.0", features = [ "rt-multi-thread", "time", "fs", "macros", "net",] }
+tokio-stream = { version = "0.1", features = ["net"] }
+tonic = { version = "0.7.2" }
+tower = { version = "0.4" }
+
+[build-dependencies]
+tonic-build = "0.7.2"

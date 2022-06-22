@@ -1,0 +1,19 @@
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    tonic_build::configure()
+        .build_server(false)
+        .compile(
+            &[
+                "proto/anki/extensions.proto",
+                "proto/anki/messages.proto",
+                "proto/anki/behavior.proto",
+                "proto/anki/cube.proto",
+                "proto/anki/external_interface.proto",
+                "proto/anki/nav_map.proto",
+                "proto/anki/response_status.proto",
+                "proto/anki/settings.proto",
+                "proto/anki/shared.proto",
+            ],
+            &["proto"],
+        )?;
+    Ok(())
+}
